@@ -7,7 +7,9 @@ function Navbar() {
         <section className="brandname_container">
           <p><span>un</span>social media</p>
         </section>
-      
+      <section className="searchbar_container">
+        <input type="text" />
+      </section>
     </div>
   )
 };

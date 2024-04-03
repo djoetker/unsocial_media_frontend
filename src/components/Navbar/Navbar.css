@@ -1,6 +1,15 @@
 .navbar_container {
-  height: 15vh;
+  height: 12.5vh;
   background-color: #100c08;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.brandname_container {
+  display: flex;
+  justify-content: center;
+  width: 50%;
 }
 
 .brandname_container p {
@@ -9,4 +18,26 @@
 
 .brandname_container p span {
   font-style: italic;
+}
+
+.searchbar_container {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.searchbar_container input {
+  padding: 0.25rem;
+  background-image: url("../../../images/magnifying_glass.png");
+  background-size: 13px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 5px) center;
+  border-radius: 10px;
+  width: 100px;
+  transition: width 1s ease;
+}
+
+.searchbar_container input:focus {
+  width: 350px;
+  outline-width: 0;
 }
