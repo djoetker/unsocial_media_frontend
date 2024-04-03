@@ -1,0 +1,12 @@
+.navbar_container {
+  height: 15vh;
+  background-color: #100c08;
+}
+
+.brandname_container p {
+  color: #fdfff5;
+}
+
+.brandname_container p span {
+  font-style: italic;
+}
