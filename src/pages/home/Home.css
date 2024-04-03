@@ -1,0 +1,9 @@
+.home_container {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
