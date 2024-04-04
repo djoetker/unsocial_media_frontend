@@ -6,17 +6,26 @@ import { useData } from '../../context/DataContext';
 import ViewPost from '../../components/ViewPost/ViewPost';
 
 function Home() {
-  const {randomPosts, getRandomPosts} = useData();
+  const {randomPosts, getRandomPosts, previousPostIds} = useData();
 
+  const fetchRandomPosts = () => {
+    getRandomPosts(previousPostIds);
+  };
 
   return (
     <div className="home_container">
       <PostAPost/>
       <InfiniteScroll 
       dataLength={randomPosts.length}
-      next={getRandomPosts}
+      next={fetchRandomPosts}
       hasMore={true}
-      loader={<h4>loading...</h4>} >
+      loader={<h4>loading...</h4>} 
+      endMessage={
+        <p style={{ textAlign: 'center' }}>
+          <b>Yay! You have seen it all</b>
+        </p>
+      }
+      >
         <div className='viewpost_container'>
         {randomPosts.map(post => (
           <ViewPost key={post._id} post={post} />

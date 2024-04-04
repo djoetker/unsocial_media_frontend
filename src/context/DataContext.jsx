@@ -20,6 +20,7 @@ function DataContextProvider({children}) {
       ...prevIds,
       ...response.updatedPostIds
     ]));
+    console.log(previousPostIds)
 
     } catch (error) {
       console.error("Error fetching posts: ", error);
@@ -32,7 +33,7 @@ function DataContextProvider({children}) {
 
 
 return (
-  <DataContext.Provider value={{randomPosts, getRandomPosts}}>
+  <DataContext.Provider value={{randomPosts, getRandomPosts, previousPostIds}}>
     {children}
   </DataContext.Provider> 
   );  

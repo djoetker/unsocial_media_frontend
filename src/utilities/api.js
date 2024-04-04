@@ -23,8 +23,8 @@ export const getPostById = async (postId) => {
   return response.data;
 };
 
-export const getRandomPosts = async (previousPostsIds) => {
-  const response = await axios_base_url.get("/post/random", previousPostsIds);
+export const getRandomPosts = async (prevPostsIds) => {
+  const response = await axios_base_url.get("/post/random", { params: { previousPostIds: prevPostsIds } });
   return response.data;
 };
 
