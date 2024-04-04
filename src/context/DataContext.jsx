@@ -6,11 +6,12 @@ const DataContext = createContext({});
 function DataContextProvider({children}) {
   const [randomPosts, setRandomPosts] = useState([]);
   const [previousPostIds, setPreviousPostIds] = useState([]);
+  const [dataLeft, setDataLeft] = useState(true);
 
   const getRandomPosts = async (prevPostIds) => {
     try {
       const response = await api.getRandomPosts(prevPostIds);
-      console.log(response);
+      if (response.posts.length === 0) setDataLeft(false);
       setRandomPosts((prevPosts) => ([
         ...prevPosts,
         ...response.posts
@@ -30,7 +31,7 @@ function DataContextProvider({children}) {
 
 
 return (
-  <DataContext.Provider value={{randomPosts, getRandomPosts, previousPostIds, setRandomPosts, setPreviousPostIds}}>
+  <DataContext.Provider value={{randomPosts, getRandomPosts, previousPostIds, setRandomPosts, setPreviousPostIds, dataLeft}}>
     {children}
   </DataContext.Provider> 
   );  

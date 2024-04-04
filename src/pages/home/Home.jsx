@@ -6,7 +6,7 @@ import { useData } from '../../context/DataContext';
 import ViewPost from '../../components/ViewPost/ViewPost';
 
 function Home() {
-  const {randomPosts, getRandomPosts, previousPostIds} = useData();
+  const {randomPosts, getRandomPosts, previousPostIds, dataLeft} = useData();
 
   const fetchRandomPosts = () => {
     getRandomPosts(previousPostIds);
@@ -18,7 +18,7 @@ function Home() {
       <InfiniteScroll 
       dataLength={randomPosts.length}
       next={fetchRandomPosts}
-      hasMore={true}
+      hasMore={dataLeft}
       loader={<h4>loading...</h4>} 
       endMessage={
         <p style={{ textAlign: 'center' }}>
