@@ -11,10 +11,16 @@ function DataContextProvider({children}) {
     try {
       const response = await api.getRandomPosts(prevPostIds);
       console.log(response);
-      setRandomPosts((prevPosts) => ({
+      setRandomPosts((prevPosts) => ([
         ...prevPosts,
         ...response.posts
-    }));
+      ]));
+
+    setPreviousPostIds((prevIds) => ([
+      ...prevIds,
+      ...response.updatedPostIds
+    ]));
+
     } catch (error) {
       console.error("Error fetching posts: ", error);
     };
@@ -26,7 +32,7 @@ function DataContextProvider({children}) {
 
 
 return (
-  <DataContext.Provider value={{randomPosts}}>
+  <DataContext.Provider value={{randomPosts, getRandomPosts}}>
     {children}
   </DataContext.Provider> 
   );  
