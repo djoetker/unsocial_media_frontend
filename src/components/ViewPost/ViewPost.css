@@ -18,6 +18,10 @@
   margin-bottom: 0.5rem;
 }
 
+.post_content_container p {
+  white-space: pre-line;
+}
+
 .hashtag_container p {
   display: inline-block;
   font-size: 0.75rem;

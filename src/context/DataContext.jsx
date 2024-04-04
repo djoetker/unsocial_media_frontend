@@ -16,10 +16,7 @@ function DataContextProvider({children}) {
         ...response.posts
       ]));
 
-    setPreviousPostIds((prevIds) => ([
-      ...prevIds,
-      ...response.updatedPostIds
-    ]));
+    setPreviousPostIds(([...response.updatedPostIds]));
     console.log(previousPostIds)
 
     } catch (error) {
@@ -33,7 +30,7 @@ function DataContextProvider({children}) {
 
 
 return (
-  <DataContext.Provider value={{randomPosts, getRandomPosts, previousPostIds}}>
+  <DataContext.Provider value={{randomPosts, getRandomPosts, previousPostIds, setRandomPosts, setPreviousPostIds}}>
     {children}
   </DataContext.Provider> 
   );  

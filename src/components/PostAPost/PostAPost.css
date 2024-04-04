@@ -1,4 +1,6 @@
 .post_container {
+  position: sticky;
+  top: 50px;
   width: 80%;
   /* border: 1px solid black; */
   height: fit-content;
