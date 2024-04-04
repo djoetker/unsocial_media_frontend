@@ -1,3 +1,5 @@
+import DOMPurify from 'dompurify';
+
 import "./ViewPost.css";
 
 function ViewPost ({post}) {
@@ -23,8 +25,31 @@ function ViewPost ({post}) {
       return `just now`;
     }
   };
-  
-  
+
+  const sanitizeContent = (content) => {
+    return DOMPurify.sanitize(content);
+  };
+
+  const getLinksFromText = (content) => {
+    const sanitizedContent = sanitizeContent(content);
+
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = sanitizedContent.split(urlRegex);
+    console.log(parts);
+
+    return parts.map((part, index) => {
+      if (part.match(urlRegex)) {
+        return (
+          <a key={index} href={part} target="_blank" rel="noopener noreferrer">
+            {part}
+          </a>
+        );
+      } else {
+        return part;
+      }
+    });
+  };
+    
   return (
     <>
         <div className="single_post_container" id={post._id}>
@@ -34,7 +59,7 @@ function ViewPost ({post}) {
             })}
           </section>
           <section className="post_content_container">
-            <p>{post.content}</p>
+            <p>{getLinksFromText(post.content)}</p>
           </section>
           <section className="post_info_container">
             <p>{post.comments.length} comments</p>
