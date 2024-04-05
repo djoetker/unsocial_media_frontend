@@ -58,6 +58,7 @@
 
 .comment_content p {
   font-size: 0.75rem;
+  white-space: pre-line;
 }
 
 .comment {
