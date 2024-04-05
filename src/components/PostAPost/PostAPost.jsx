@@ -34,8 +34,6 @@ function PostAPost() {
       response._id,
       ...prevIds
     ]));
-
-    console.log(response);
   };
 
   return (

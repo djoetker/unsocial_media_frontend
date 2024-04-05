@@ -20,7 +20,6 @@ function DataContextProvider({children}) {
       ]));
 
     setPreviousPostIds(([...response.updatedPostIds]));
-    console.log(previousPostIds)
 
     } catch (error) {
       console.error("Error fetching posts: ", error);
