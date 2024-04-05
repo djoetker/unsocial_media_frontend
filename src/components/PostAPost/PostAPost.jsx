@@ -19,7 +19,6 @@ function PostAPost() {
       ...prevData,
       [evt.target.name]: evt.target.value
     }));
-    console.log(postData);
   };
 
   const onSubmitHandler = async (evt) => {
@@ -32,8 +31,8 @@ function PostAPost() {
     ]));
 
     setPreviousPostIds((prevIds) => ([
-      ...prevIds,
-      response._id
+      response._id,
+      ...prevIds
     ]));
 
     console.log(response);
@@ -43,7 +42,7 @@ function PostAPost() {
     <div className="post_container">
       <div className="form_container">
         <form onSubmit={onSubmitHandler}>
-          <label htmlFor="content">
+          <label htmlFor="post">
             <textarea name="content" id="post" cols="5" rows="10" placeholder="what's on your mind?" onChange={changeHandler} value={postData.content}></textarea>
             </label>
             <section className="tags_and_button_container">

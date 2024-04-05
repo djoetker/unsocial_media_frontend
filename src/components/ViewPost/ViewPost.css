@@ -1,5 +1,6 @@
 .single_post_container {
   width: 80%;
+  box-sizing: border-box;
   border: 1px solid #d0d0d0;
   border-top: none;
   padding: 0.5rem;
@@ -12,6 +13,23 @@
 
 .hashtag_container {
   margin-bottom: 0.5rem;
+  max-height: 30px;
+  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.hashtag_container p {
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+  border: 1px solid #d0d0d0;
+  background-color: rgb(244, 244, 244);
+  padding: 0.1rem;
+}
+
+.hashtag_container::-webkit-scrollbar {
+  height: 5px;
 }
 
 .post_content_container {
@@ -24,28 +42,20 @@
   white-space: pre-line;
 }
 
-.hashtag_container p {
-  display: inline-block;
-  font-size: 0.75rem;
-  margin-right: 0.25rem;
-  border: 1px solid #d0d0d0;
-  background-color: rgb(244, 244, 244);
-  padding: 0.1rem;
-}
-
 .post_info_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.post_info_container p {
+.post_info_container button {
   display: inline-block;
+  cursor: pointer;
   font-size: 0.75rem;
   margin-right: 0.25rem;
   border: 1px solid #d0d0d0;
   background-color: rgb(244, 244, 244);
-  padding: 0.1rem;
+  padding: 0.3rem;
 }
 
 .post_info_container span {

@@ -28,6 +28,11 @@ export const getRandomPosts = async (prevPostsIds) => {
   return response.data;
 };
 
+export const updatePosts = async (prevPostsIds) => {
+  const response = await axios_base_url.get("/post/update", { params: { previousPostIds: prevPostsIds } });
+  return response.data;
+};
+
 
 
 
