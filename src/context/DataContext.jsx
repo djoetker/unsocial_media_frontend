@@ -29,9 +29,7 @@ function DataContextProvider({children}) {
 
   const updateVisiblePosts = async (prevPostIds) => {
     try {
-      console.log("prevPostIds: ", prevPostIds)
       const response = await api.updatePosts(prevPostIds);
-      console.log("update response: ", response);
       setRandomPosts([...response]);
     } catch (error) {
       console.error("Error fetching posts: ", error);
@@ -41,7 +39,6 @@ function DataContextProvider({children}) {
   useEffect(() => {
     if (previousPostIds.length > 0){
       updateVisiblePosts(previousPostIds);
-    console.log("update effect");
   }
   }, [update]);
 

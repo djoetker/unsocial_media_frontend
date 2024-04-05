@@ -16,8 +16,6 @@ function ViewPost ({post}) {
     setShowCommentComponent(!showCommentComponent);
     if (showCommentComponent) setGetComments(!getComments);
     setPostId(evt.target.parentNode.parentNode.id);
-    console.log("id: ", evt.target.parentNode.parentNode.id);
-    console.log("state: ", postId);
   };
 
   
