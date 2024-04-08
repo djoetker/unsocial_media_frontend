@@ -21,6 +21,7 @@
 
 .hashtag_container p {
   display: inline-block;
+  cursor: pointer;
   font-size: 0.75rem;
   margin-right: 0.25rem;
   border: 1px solid #d0d0d0;

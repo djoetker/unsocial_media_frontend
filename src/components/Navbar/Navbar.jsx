@@ -3,11 +3,11 @@ import { useData } from "../../context/DataContext";
 import { useState } from "react";
 
 function Navbar() {
-  const { setPreviousPostIds, setRandomPosts, getPostsBySearchQuery, setSearchBarActive, setQueryData, setDataLeft, searchBarActive } = useData();
-  const [searchData, setSearchData] = useState("");
+  const { setPreviousPostIds, setRandomPosts, getPostsBySearchQuery, setSearchBarActive, setQueryData, setDataLeft, searchBarActive, setSearchData, searchData, searchInputRef } = useData();
 
   const changeHandler = (evt) => {
     setSearchData(evt.target.value);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const submitHandler = async (evt) => {
@@ -32,7 +32,7 @@ function Navbar() {
         <p><span>un</span>social media</p>
       </section>
       <form action="" className="searchbar_container" onSubmit={submitHandler}>
-        <input type="text" name="search_bar" id="search_bar" value={searchData} onChange={changeHandler} placeholder="text or #" />
+        <input type="text" name="search_bar" id="search_bar" value={searchData} onChange={changeHandler} placeholder="text or #" ref={searchInputRef} />
         <button type="submit">
           <img src="../../../images/magnifying_glass.png" alt="magnifying_glass" />
         </button>

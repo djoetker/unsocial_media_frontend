@@ -21,7 +21,7 @@ function Home() {
       fetchPostsBySearch();
     } else {
       fetchRandomPosts();
-    }
+    };
   };
 
   return (
