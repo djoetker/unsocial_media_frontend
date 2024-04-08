@@ -6,33 +6,49 @@ import { useData } from '../../context/DataContext';
 import ViewPost from '../../components/ViewPost/ViewPost';
 
 function Home() {
-  const {randomPosts, getRandomPosts, previousPostIds, dataLeft} = useData();
+  const { randomPosts, getRandomPosts, previousPostIds, dataLeft, searchBarActive, getPostsBySearchQuery, queryData } = useData();
 
   const fetchRandomPosts = () => {
     getRandomPosts(previousPostIds);
   };
 
+  const fetchPostsBySearch = () => {
+    getPostsBySearchQuery(previousPostIds, queryData);
+  };
+
+  const fetchNextPosts = () => {
+    if (searchBarActive) {
+      fetchPostsBySearch();
+    } else {
+      fetchRandomPosts();
+    }
+  };
+
+  console.log("searchBarActive: ", searchBarActive);
+
+
+
   return (
     <div className="home_container">
-      <PostAPost/>
-      <InfiniteScroll 
-      dataLength={randomPosts.length}
-      next={fetchRandomPosts}
-      hasMore={dataLeft}
-      loader={<h4>loading...</h4>} 
-      endMessage={
-        <p style={{ textAlign: 'center' }}>
-          <b>You have seen it all</b>
-        </p>
-      }
+      <PostAPost />
+      <InfiniteScroll
+        dataLength={randomPosts.length}
+        next={fetchNextPosts}
+        hasMore={dataLeft}
+        loader={<p style={{ textAlign: 'center', margin: "1rem" }}>scroll to see if there is more...</p>}
+        endMessage={
+          < p style={{ textAlign: 'center', margin: "1rem" }}>
+            You have seen it all
+          </p >
+        }
       >
         <div className='viewpost_container'>
-        {randomPosts.map(post => (
-          <ViewPost key={post._id} post={post} />
-        ))}
-      </div>
-      </InfiniteScroll>
-    </div>
+          {randomPosts.map(post => (
+            <ViewPost key={post._id} post={post} />
+          ))}
+        </div>
+      </InfiniteScroll >
+    </div >
   );
 };
 

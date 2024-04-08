@@ -31,12 +31,8 @@
 
 .searchbar_container input {
   padding: 0.25rem;
-  background-image: url("../../../images/magnifying_glass.png");
-  background-size: 13px;
-  background-repeat: no-repeat;
-  background-position: calc(100% - 5px) center;
   border: 1px solid #d0d0d0;
-
+  border-right: none;
   /* border-radius: 10px; */
   font-family: monospace;
   width: 100px;
@@ -46,4 +42,20 @@
 .searchbar_container input:focus {
   width: 350px;
   outline-width: 0;
+}
+
+.searchbar_container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(244, 244, 244);
+  padding: 0.25rem;
+  cursor: pointer;
+  border: 1px solid #d0d0d0;
+  border-left: none;
+
+}
+
+.searchbar_container button img {
+  height: 13px;
 }

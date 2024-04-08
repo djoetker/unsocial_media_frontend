@@ -12,7 +12,7 @@ const initialPostData = {
 
 function PostAPost() {
   const [postData, setPostData] = useState(initialPostData);
-  const {setRandomPosts, setPreviousPostIds} = useData();
+  const { setRandomPosts, setPreviousPostIds } = useData();
 
   const changeHandler = (evt) => {
     setPostData((prevData) => ({
@@ -22,18 +22,24 @@ function PostAPost() {
   };
 
   const onSubmitHandler = async (evt) => {
-    evt.preventDefault();
-    const response = await api.createNewPost(postData);
-    setPostData(initialPostData);
-    setRandomPosts((prevPosts) => ([
-      response,
-      ...prevPosts
-    ]));
+    try {
+      evt.preventDefault();
+      const response = await api.createNewPost(postData);
+      setPostData(initialPostData);
+      setRandomPosts((prevPosts) => ([
+        response,
+        ...prevPosts
+      ]));
 
-    setPreviousPostIds((prevIds) => ([
-      response._id,
-      ...prevIds
-    ]));
+      setPreviousPostIds((prevIds) => ([
+        response._id,
+        ...prevIds
+      ]));
+
+    } catch (error) {
+      console.error(error, "Error fetching posts!");
+    };
+
   };
 
   return (
@@ -42,15 +48,15 @@ function PostAPost() {
         <form onSubmit={onSubmitHandler}>
           <label htmlFor="post">
             <textarea name="content" id="post" cols="5" rows="10" placeholder="what's on your mind?" onChange={changeHandler} value={postData.content}></textarea>
+          </label>
+          <section className="tags_and_button_container">
+            <label htmlFor="tags">
+              <input type="text" name="tags" id="tags" placeholder="enter #hashtags" onChange={changeHandler} value={postData.tags} />
             </label>
-            <section className="tags_and_button_container">
-              <label htmlFor="tags">
-                <input type="text" name="tags" id="tags" placeholder="enter #hashtags" onChange={changeHandler} value={postData.tags}/>
-              </label>
-              <section className="button_and_count">
-                <button type="submit" >POST</button>
-              </section>
+            <section className="button_and_count">
+              <button type="submit" >POST</button>
             </section>
+          </section>
         </form>
       </div>
     </div>

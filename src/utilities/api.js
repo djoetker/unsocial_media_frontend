@@ -9,8 +9,8 @@ const axios_base_url = axios.create({
 });
 
 export const createNewPost = async (data) => {
-    const response = await axios_base_url.post("/post/new", data);
-    return response.data;
+  const response = await axios_base_url.post("/post/new", data);
+  return response.data;
 };
 
 export const createNewComment = async (postId, data) => {
@@ -30,6 +30,17 @@ export const getRandomPosts = async (prevPostsIds) => {
 
 export const updatePosts = async (prevPostsIds) => {
   const response = await axios_base_url.get("/post/update", { params: { previousPostIds: prevPostsIds } });
+  return response.data;
+};
+
+export const searchPosts = async (prevPostsIds, query) => {
+  const response = await axios_base_url.get("/post/search", {
+    params:
+    {
+      previousPostIds: prevPostsIds,
+      query: query
+    }
+  });
   return response.data;
 };
 
