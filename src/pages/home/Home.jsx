@@ -24,10 +24,6 @@ function Home() {
     }
   };
 
-  console.log("searchBarActive: ", searchBarActive);
-
-
-
   return (
     <div className="home_container">
       <PostAPost />

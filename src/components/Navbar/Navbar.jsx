@@ -8,7 +8,6 @@ function Navbar() {
 
   const changeHandler = (evt) => {
     setSearchData(evt.target.value);
-    console.log(searchData);
   };
 
   const submitHandler = async (evt) => {
