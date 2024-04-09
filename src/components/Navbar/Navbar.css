@@ -17,6 +17,7 @@
 
 .brandname_container p {
   color: #fdfff5;
+  font-size: 1.25rem;
 }
 
 .brandname_container p span {
@@ -30,7 +31,7 @@
 }
 
 .searchbar_container input {
-  padding: 0.25rem;
+  padding: 0.5rem;
   border: 1px solid #d0d0d0;
   border-right: none;
   font-family: monospace;
@@ -66,5 +67,9 @@
 
   .brandname_container p {
    font-size: 0.75rem;
+  }
+
+  .searchbar_container input {
+    padding: 0.25rem;
   }
 }

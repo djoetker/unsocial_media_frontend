@@ -12,7 +12,11 @@ function DataContextProvider({ children }) {
   const [update, setUpdate] = useState(true);
   const [searchBarActive, setSearchBarActive] = useState(false);
   const [searchData, setSearchData] = useState("");
+  const [initialized, setInitialized] = useState(false);
 
+
+  console.log("random posts: ", randomPosts);
+  console.log("previousPostIds: ", previousPostIds);
 
   const getPostsBySearchQuery = async (prevPostIds, query) => {
     try {
@@ -24,7 +28,7 @@ function DataContextProvider({ children }) {
         ...response.posts
       ]));
 
-      setPreviousPostIds(([...response.updatedPostIds]));
+      setPreviousPostIds((prevPostIds) => ([...response.updatedPostIds]));
 
     } catch (error) {
       console.error("Error fetching posts: ", error);
@@ -34,13 +38,15 @@ function DataContextProvider({ children }) {
   const getRandomPosts = async (prevPostIds) => {
     try {
       const response = await api.getRandomPosts(prevPostIds);
+      console.log("response: ", response.updatedPostIds)
       if (response.posts.length < 8) setDataLeft(false);
       setRandomPosts((prevPosts) => ([
         ...prevPosts,
         ...response.posts
       ]));
 
-      setPreviousPostIds(([...response.updatedPostIds]));
+      setPreviousPostIds((prevPostIds) => ([...response.updatedPostIds]));
+
 
     } catch (error) {
       console.error("Error fetching posts: ", error);
@@ -62,13 +68,15 @@ function DataContextProvider({ children }) {
     }
   }, [update]);
 
-  useEffect(() => {
-    getRandomPosts(previousPostIds);
-  }, []);
+  // useEffect(() => {
+  //   if (!initialized) {
+  //     getRandomPosts(previousPostIds);
+  //   }
+  // }, []);
 
 
   return (
-    <DataContext.Provider value={{ randomPosts, getRandomPosts, previousPostIds, setRandomPosts, setPreviousPostIds, dataLeft, setUpdate, update, searchBarActive, setSearchBarActive, getPostsBySearchQuery, queryData, setQueryData, setDataLeft, searchData, setSearchData, searchInputRef }}>
+    <DataContext.Provider value={{ randomPosts, getRandomPosts, previousPostIds, setRandomPosts, setPreviousPostIds, dataLeft, setUpdate, update, searchBarActive, setSearchBarActive, getPostsBySearchQuery, queryData, setQueryData, setDataLeft, searchData, setSearchData, searchInputRef, setInitialized }}>
       {children}
     </DataContext.Provider>
   );

@@ -6,7 +6,7 @@ import { useData } from '../../context/DataContext';
 import ViewPost from '../../components/ViewPost/ViewPost';
 
 function Home() {
-  const { randomPosts, getRandomPosts, previousPostIds, dataLeft, searchBarActive, getPostsBySearchQuery, queryData } = useData();
+  const { randomPosts, getRandomPosts, previousPostIds, dataLeft, searchBarActive, getPostsBySearchQuery, queryData, setInitialized } = useData();
 
   const fetchRandomPosts = () => {
     getRandomPosts(previousPostIds);
@@ -19,8 +19,10 @@ function Home() {
   const fetchNextPosts = () => {
     if (searchBarActive) {
       fetchPostsBySearch();
+      setInitialized(true);
     } else {
       fetchRandomPosts();
+      setInitialized(true);
     };
   };
 
@@ -31,12 +33,13 @@ function Home() {
         dataLength={randomPosts.length}
         next={fetchNextPosts}
         hasMore={dataLeft}
-        loader={<p style={{ textAlign: 'center', margin: "1rem" }}>scroll to see if there is more...</p>}
+        loader={<p style={{ textAlign: 'center', margin: "1rem" }}>scroll to see posts...</p>}
         endMessage={
           < p style={{ textAlign: 'center', margin: "1rem" }}>
             You have seen it all
           </p >
         }
+        initialScrollY={100}
       >
         <div className='viewpost_container'>
           {randomPosts.map(post => (
