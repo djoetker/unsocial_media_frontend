@@ -1,6 +1,5 @@
 import "./Navbar.css"
 import { useData } from "../../context/DataContext";
-import { useState } from "react";
 
 function Navbar() {
   const { setPreviousPostIds, setRandomPosts, getPostsBySearchQuery, setSearchBarActive, setQueryData, setDataLeft, searchBarActive, setSearchData, searchData, searchInputRef } = useData();

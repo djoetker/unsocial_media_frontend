@@ -1,6 +1,5 @@
 .comment_container {
   width: 80%;
-  /* border: 1px solid black; */
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -17,8 +16,7 @@
   background-color: #fdfff5;
   padding: 0.5rem;
   width: 90%;
-  border: 1px solid #d0d0d0;
-  border-top: none;
+  outline: 1px solid #d0d0d0;
 }
 .form_comment_container form:hover {
   background-color: rgb(244, 244, 244);
@@ -65,8 +63,8 @@
   width: 90%;
   background-color: rgb(244, 244, 244);
   padding: 0.5rem;
-  border: 1px solid #d0d0d0;
-  border-top: none;
+  outline: 1px solid #d0d0d0;
+  margin-top: 1px;
 }
 
 .comment_info {
@@ -77,4 +75,11 @@
 .comment_info span {
   font-size: 0.5rem;
   font-style: italic;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .comment_container {
+    width: 100%;
+  }
 }

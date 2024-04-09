@@ -1,10 +1,10 @@
 .single_post_container {
   width: 80%;
   box-sizing: border-box;
-  border: 1px solid #d0d0d0;
-  border-top: none;
+  outline: 1px solid #d0d0d0;
   padding: 0.5rem;
   background-color: #fdfff5;
+  overflow-wrap: break-word;
 }
 
 .single_post_container:hover {
@@ -62,4 +62,11 @@
 .post_info_container span {
   font-size: 0.5rem;
   font-style: italic;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .single_post_container {
+    width: 100%;
+  }
 }

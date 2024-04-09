@@ -2,7 +2,6 @@
   position: sticky;
   top: 50px;
   width: 80%;
-  /* border: 1px solid black; */
   height: fit-content;
   display: flex;
   justify-content: center;
@@ -23,16 +22,22 @@
   background-color: #fdfff5;
   padding: 0.5rem;
   width: 80%;
-  border: 1px solid #d0d0d0;
+  outline: 1px solid #d0d0d0;
+  margin-top: 1px;
 }
 
 .form_container form label textarea {
   padding: 0.75rem;
   width: 100%;
-  height: 100px;
+  height: 50px;
   resize: none;
   outline: 0;
   border: 1px solid #d0d0d0;
+  transition: height 1s ease;
+
+}
+.form_container form label textarea:focus {
+  height: 100px;
 }
 
 .tags_and_button_container {
@@ -56,4 +61,18 @@
   padding: 0.25rem;
   background-color: #100c08;
   color: #fdfff5;
+}
+
+@media only screen and (max-width: 768px) {
+  .post_container {
+    width: 100%;
+  }
+
+  .form_container {
+    width: 100%;
+  }
+
+  .form_container form {
+    width: 100%;
+  }
 }
