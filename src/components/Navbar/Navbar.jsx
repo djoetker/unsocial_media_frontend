@@ -1,8 +1,12 @@
 import "./Navbar.css"
 import { useData } from "../../context/DataContext";
 
+import image from "../../../images/magnifying_glass.png";
+
 function Navbar() {
   const { setPreviousPostIds, setRandomPosts, getPostsBySearchQuery, setSearchBarActive, setQueryData, setDataLeft, searchBarActive, setSearchData, searchData, searchInputRef } = useData();
+
+
 
   const changeHandler = (evt) => {
     setSearchData(evt.target.value);
@@ -33,7 +37,7 @@ function Navbar() {
       <form action="" className="searchbar_container" onSubmit={submitHandler}>
         <input type="text" name="search_bar" id="search_bar" value={searchData} onChange={changeHandler} placeholder="text or #" ref={searchInputRef} />
         <button type="submit">
-          <img src="../../../images/magnifying_glass.png" alt="magnifying_glass" />
+          <img src={image} alt="magnifying_glass" />
         </button>
       </form>
     </div>
