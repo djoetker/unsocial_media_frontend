@@ -56,12 +56,14 @@
   width: 100%;
   font-family: monospace;
   outline: 0;
-  border: 1px solid #d0d0d0;  
+  border-radius: 0;
+  border: 1px solid #d0d0d0;
+  -webkit-appearance: none;  
+  appearance: none;
+  -moz-appearance: none;
 }
 
-input[type=text] {
-  -webkit-appearance: none;
-}
+
 
 .tags_and_button_container button {
   padding: 0.25rem;
