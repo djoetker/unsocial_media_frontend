@@ -14,10 +14,6 @@ function DataContextProvider({ children }) {
   const [searchData, setSearchData] = useState("");
   const [initialized, setInitialized] = useState(false);
 
-
-  console.log("random posts: ", randomPosts);
-  console.log("previousPostIds: ", previousPostIds);
-
   const getPostsBySearchQuery = async (prevPostIds, query) => {
     try {
 
@@ -38,7 +34,6 @@ function DataContextProvider({ children }) {
   const getRandomPosts = async (prevPostIds) => {
     try {
       const response = await api.getRandomPosts(prevPostIds);
-      console.log("response: ", response.updatedPostIds)
       if (response.posts.length < 8) setDataLeft(false);
       setRandomPosts((prevPosts) => ([
         ...prevPosts,
