@@ -65,6 +65,7 @@
 @media only screen and (max-width: 430px) {
   .navbar_container {
     flex-direction: column;
+    position: -webkit-sticky;
   }
 
   .brandname_container p {
