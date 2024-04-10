@@ -34,7 +34,7 @@ function Navbar() {
       <section className="brandname_container">
         <p><span>un</span>social media</p>
       </section>
-      <form action="" className="searchbar_container" onSubmit={submitHandler}>
+      <form className="searchbar_container" onSubmit={submitHandler}>
         <input type="text" name="search_bar" id="search_bar" value={searchData} onChange={changeHandler} placeholder="text or #" ref={searchInputRef} />
         <button type="submit">
           <img src={image} alt="magnifying_glass" />
