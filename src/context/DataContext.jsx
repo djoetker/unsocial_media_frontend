@@ -63,11 +63,11 @@ function DataContextProvider({ children }) {
     }
   }, [update]);
 
-  useEffect(() => {
-    if (!initialized) {
-      getRandomPosts(previousPostIds);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!initialized) {
+  //     getRandomPosts(previousPostIds);
+  //   }
+  // }, []);
 
 
   return (
