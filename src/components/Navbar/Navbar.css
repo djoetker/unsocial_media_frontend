@@ -3,7 +3,7 @@
   position: -moz-sticky;
   position: -ms-sticky;
   position: -o-sticky;
-  position: sticky !important;
+  position: fixed !important;
   top: 0;
   width: 100%;
   height: 50px;

@@ -1,10 +1,5 @@
 .post_container {
-  position: -webkit-sticky;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: -o-sticky;
-  position: sticky !important;
+  position: fixed !important;
   top: 50px;
   width: 80%;
   height: fit-content;

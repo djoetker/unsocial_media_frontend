@@ -10,10 +10,11 @@
 
 .infinite-scroll-component__outerdiv {
   width: 100%;
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 650px;
+  min-height: 850px;
   /* border: 1px solid orange; */
 }
 .infinite-scroll-component {
