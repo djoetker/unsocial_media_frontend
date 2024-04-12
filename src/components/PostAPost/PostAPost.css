@@ -1,5 +1,5 @@
 .post_container {
-  position: fixed !important;
+  position: sticky;
   top: 50px;
   width: 80%;
   height: fit-content;
