@@ -26,6 +26,10 @@ function Home() {
     };
   };
 
+  function loadingSpinner() {
+    return <div className="loading_spinner"></div>;
+  };
+
   return (
     <div className="home_container">
       <PostAPost />
@@ -33,7 +37,8 @@ function Home() {
         dataLength={randomPosts.length}
         next={fetchNextPosts}
         hasMore={dataLeft}
-        loader={<p style={{ textAlign: 'center', margin: "1rem" }}>scroll to see posts...</p>}
+        // loader={<p style={{ textAlign: 'center', margin: "1rem" }}>scroll to see posts...</p>}
+        loader={loadingSpinner}
         endMessage={
           < p style={{ textAlign: 'center', margin: "1rem" }}>
             You have seen it all
