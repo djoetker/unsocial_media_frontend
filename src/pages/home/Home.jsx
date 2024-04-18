@@ -40,7 +40,7 @@ function Home() {
             You have seen it all
           </p >
         }
-        initialScrollY={100}
+        initialScrollY={0}
       >
         <div className='viewpost_container'>
           {randomPosts.map(post => (
