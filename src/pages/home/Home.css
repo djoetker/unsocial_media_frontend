@@ -45,10 +45,6 @@
   animation: spin 1s linear infinite;
 }
 
-.end_message {
-  margin-top: 2rem;
-}
-
 @keyframes spin {
   to {
     transform: rotate(360deg);
