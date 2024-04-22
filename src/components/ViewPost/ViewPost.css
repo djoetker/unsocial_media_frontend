@@ -5,6 +5,7 @@
   padding: 0.5rem;
   background-color: #fdfff5;
   overflow-wrap: break-word;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .single_post_container:hover {
@@ -68,5 +69,6 @@
 @media only screen and (max-width: 768px) {
   .single_post_container {
     width: 100%;
+    box-shadow: none;
   }
 }

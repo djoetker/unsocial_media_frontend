@@ -36,9 +36,11 @@ function Home() {
         // loader={<p style={{ textAlign: 'center', margin: "1rem" }}>scroll to see posts...</p>}
         loader={<div className="loading_spinner"></div>}
         endMessage={
-          < p style={{ textAlign: 'center', margin: "1rem" }}>
-            You have seen it all
-          </p >
+          <div className="end_message">
+            < p style={{ textAlign: 'center', margin: "1rem" }}>
+              You have seen it all
+            </p >
+          </div>
         }
         initialScrollY={0}
       >
