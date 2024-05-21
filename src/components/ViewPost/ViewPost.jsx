@@ -38,7 +38,7 @@ function ViewPost({ post }) {
           })}
         </section>
         <section className="post_content_container">
-          <p>{getLinksFromText(post.content)}</p>
+          <p dangerouslySetInnerHTML={{ __html: getLinksFromText(post.content) }}></p>
         </section>
         <section className="post_info_container" id='idididid'>
           <button onClick={toggleCommentSection}>{post.comments.length} comments</button>

@@ -8,12 +8,12 @@ function App() {
 
   return (
     <DataContextProvider>
-     <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route path="/" element={<Home/>}/>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home />} />
         </Route>
-     </Routes>
-     </DataContextProvider>
+      </Routes>
+    </DataContextProvider>
   );
 };
 

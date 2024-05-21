@@ -10,14 +10,14 @@ const inititalCommentState = {
   content: ""
 };
 
-function Comment({postId, getComments, setGetComments}) {
-  const {setUpdate, update} = useData();
+function Comment({ postId, getComments, setGetComments }) {
+  const { setUpdate, update } = useData();
 
   const [commentData, setCommentData] = useState(inititalCommentState);
-  const [commentContent, setCommentContent] = useState([]);  
+  const [commentContent, setCommentContent] = useState([]);
 
   const changeHandler = (evt) => {
-    setCommentData({[evt.target.name]: evt.target.value})
+    setCommentData({ [evt.target.name]: evt.target.value })
   };
 
   const onSubmitHandler = async (evt) => {
@@ -34,39 +34,39 @@ function Comment({postId, getComments, setGetComments}) {
   };
 
   useEffect(() => {
-   getCommentsOfPost(postId); 
+    getCommentsOfPost(postId);
   }, [getComments]);
 
 
   return (
     <>
-    <div className="comment_container">
-    
-      <div className="comment_content_container">
-        {commentContent && commentContent.map((comment) => {
-          return (
-            <div key={comment._id} className="comment">
+      <div className="comment_container">
+
+        <div className="comment_content_container">
+          {commentContent.length > 0 && commentContent.map((comment) => {
+            return (
+              <div key={comment._id} className="comment">
                 <section className="comment_content">
                   <p>{getLinksFromText(comment.content)}</p>
                 </section>
                 <section className="comment_info"  >
                   <span>posted {calculateTimeDifference(comment.date)}</span>
                 </section>
-               </div>
-          )
-        })}
-      </div>
-      <div className="form_comment_container">
-        <form onSubmit={onSubmitHandler}>
-          <label htmlFor="content">
-            <textarea name="content" id="content" cols="5" rows="10" placeholder="how do you feel about that?" onChange={changeHandler} value={commentData.content}></textarea>
+              </div>
+            )
+          })}
+        </div>
+        <div className="form_comment_container">
+          <form onSubmit={onSubmitHandler}>
+            <label htmlFor="content">
+              <textarea name="content" id="content" cols="5" rows="10" placeholder="how do you feel about that?" onChange={changeHandler} value={commentData.content}></textarea>
             </label>
-              <section className="comment_button">
-                <button type="submit">POST</button>
-              </section>
-        </form>
+            <section className="comment_button">
+              <button type="submit">POST</button>
+            </section>
+          </form>
+        </div>
       </div>
-    </div>
     </>
   );
 };
